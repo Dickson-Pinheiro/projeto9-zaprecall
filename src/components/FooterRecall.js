@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export default function FooterRecall() {
+export default function FooterRecall({answeredQuestions, totalQuestions}) {
     return (
         <ContainerFooter>
-            0/4 CONCLUÍDOS
+            {answeredQuestions}/{totalQuestions} CONCLUÍDOS
         </ContainerFooter>
     )
 }

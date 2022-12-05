@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components"
 import FooterRecall from "./FooterRecall";
 import HeaderRecall from "./HeaderRecall";
@@ -15,11 +16,24 @@ const questionsAndAnswers = [
 ]
 
 export default function MainRecall() {
+
+    const [answeredQuestions, setAnsweredQuestion] = useState(0)
+
     return (
         <ContainerMain>
             <HeaderRecall />
-            {questionsAndAnswers.map((q, i) => <Question question={q.question} answers={q.answer} key={i} position={i+1}/>)}
-            <FooterRecall />
+
+            {questionsAndAnswers.map((q, i) => <Question 
+            question={q.question}
+            answer={q.answer}
+            key={i}
+            position={i+1}
+            answeredQuestions={answeredQuestions}
+            setAnsweredQuestion={setAnsweredQuestion}
+            />
+            )}
+            
+            <FooterRecall answeredQuestions={answeredQuestions} totalQuestions={questionsAndAnswers.length}/>
         </ContainerMain>
     )
 }
@@ -33,6 +47,6 @@ const ContainerMain = styled.div`
         align-items: center;
         margin: 0px;
         padding: 0px;
-        padding-bottom: 200px;
+        padding-bottom: 60px;
 `
 
