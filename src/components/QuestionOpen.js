@@ -4,8 +4,8 @@ import setaVitar from "../img/seta_virar.png"
 export default function QuestionOpen({question, setStateQuestion}){
     return(
         <ContainerQuestionOpen>
-            <p>{question}</p>
-            <img onClick={() => setStateQuestion("answer")} src={setaVitar}></img>
+            <p data-test="flashcard-text">{question}</p>
+            <img onClick={() => setStateQuestion("answer")} src={setaVitar} data-test="turn btn"/>
         </ContainerQuestionOpen>
     )
 }

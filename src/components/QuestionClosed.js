@@ -16,8 +16,15 @@ export default function QuestionClosed({ position, remind, setStateQuestion }) {
 
     return (
         <ContainerQuestionClosed remind={remind} data-test="flashcard">
-            <p>pergunta {position}</p>
-            <img src={remindImage()} onClick={() => {if(remind==="noAnswer") setStateQuestion("open")}} data-test= "play-btn"/>
+
+            <p data-test="flashcard-text">pergunta {position}</p>
+
+            <img src={remindImage()}
+            onClick={() => {if(remind==="noAnswer")
+            setStateQuestion("open")}} 
+            data-test= "play-btn no-icon zap-icon partial-icon"
+            />
+
         </ContainerQuestionClosed>
     )
 }
@@ -33,14 +40,21 @@ const ContainerQuestionClosed = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
     p {
         font-family: 'Recursive';
         font-style: normal;
-        text-decoration: dashed;
+        text-decoration: ${props => props.remind==="noAnswer" ? "none": "line-through"};
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #333333;
-}
+        color: ${props => {
+            if(props.remind === "noAnswer") return "#333333"
+            if(props.remind === "almostRemind") return "#FF922E"
+            if(props.remind === "remind") return "#2FBE34"
+            if(props.remind === "noRemind") return "#FF3030"
+        }};
+    }
+    img {
+        cursor: pointer;
+    }
 `

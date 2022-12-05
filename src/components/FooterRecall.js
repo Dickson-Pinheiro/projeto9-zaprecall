@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function FooterRecall({answeredQuestions, totalQuestions}) {
     return (
-        <ContainerFooter>
+        <ContainerFooter data-test="footer">
             {answeredQuestions}/{totalQuestions} CONCLUÍDOS
         </ContainerFooter>
     )

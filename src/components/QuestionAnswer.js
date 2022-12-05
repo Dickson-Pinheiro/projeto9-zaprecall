@@ -10,11 +10,11 @@ export default function QuestionAnswer({answer, setRemind, answeredQuestions, se
 
     return (
         <ContainerQuestionAnswer>
-            <p>{answer}</p>
+            <p data-test="flashcard-text">{answer}</p>
             <ContainerButton>
-                <ButtonAnswer onClick={() => clickOnRemindButton("noRemind")} color="#ff3030">Não lembrei</ButtonAnswer>
-                <ButtonAnswer onClick={() => clickOnRemindButton("almostRemind")} color="#FF922E">Quase não lembrei</ButtonAnswer>
-                <ButtonAnswer onClick={() => clickOnRemindButton("remind")} color="#2FBE34">Zap!</ButtonAnswer>
+                <ButtonAnswer onClick={() => clickOnRemindButton("noRemind")} color="#ff3030" data-test="no-btn">Não lembrei</ButtonAnswer>
+                <ButtonAnswer onClick={() => clickOnRemindButton("almostRemind")} color="#FF922E" data-test="partial-btn">Quase não lembrei</ButtonAnswer>
+                <ButtonAnswer onClick={() => clickOnRemindButton("remind")} color="#2FBE34" data-test="zap-btn">Zap!</ButtonAnswer>
             </ContainerButton>
         </ContainerQuestionAnswer>
     )
